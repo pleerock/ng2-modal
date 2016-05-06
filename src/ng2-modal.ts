@@ -1,7 +1,7 @@
 import {Component, Input, Output, EventEmitter, ElementRef, ViewChild} from "@angular/core";
 
 @Component({
-    selector: "modal",
+    selector: "ng2-modal",
     template: `
 <div class="modal" tabindex="-1" role="dialog"
      #modalRoot
@@ -29,7 +29,7 @@ import {Component, Input, Output, EventEmitter, ElementRef, ViewChild} from "@an
 </div>
 `
 })
-export class Modal {
+export class Ng2Modal {
 
     // -------------------------------------------------------------------------
     // Inputs
