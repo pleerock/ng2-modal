@@ -1,6 +1,6 @@
-import {bootstrap} from "angular2/platform/browser";
-import {Component} from "angular2/core";
-import {Ng2Modal} from "../../src/ng2-modal";
+import {bootstrap} from "@angular/platform-browser-dynamic";
+import {Component} from "@angular/core";
+import {Modal} from "../../src/index";
 
 @Component({
     selector: "app",

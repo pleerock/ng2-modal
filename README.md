@@ -4,7 +4,21 @@ Open modal window (dialog box) for your angular2 applications using bootstrap3.
 
 ## Installation
 
+1. Install npm module:
+
 `npm install ng2-modal --save`
+
+2. If you are using system.js you may want to add this into `map` and `package` config:
+
+```json
+{
+    "map": {
+        "ng2-modal": "node_modules/ng2-modal"
+    },
+    "packages": {
+        "ng2-modal": { "main": "index.js", "defaultExtension": "js" }
+    }
+}
 
 ## Usage
 
@@ -38,8 +52,8 @@ Open modal window (dialog box) for your angular2 applications using bootstrap3.
 ## Sample
 
 ```typescript
-import {Component} from "angular2/core";
-import {Modal} from "ng2-modal/Modal";
+import {Component} from "@angular/core";
+import {Modal} from "ng2-modal";
 
 @Component({
     selector: "app",
