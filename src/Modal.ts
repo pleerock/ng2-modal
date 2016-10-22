@@ -1,6 +1,30 @@
 import {Component, Input, Output, EventEmitter, ElementRef, ViewChild} from "@angular/core";
 
 @Component({
+    selector: "modal-header",
+    template: `<ng-content></ng-content>`
+})
+export class ModalHeader {
+
+}
+
+@Component({
+    selector: "modal-content",
+    template: `<ng-content></ng-content>`
+})
+export class ModalContent {
+
+}
+
+@Component({
+    selector: "modal-footer",
+    template: `<ng-content></ng-content>`
+})
+export class ModalFooter {
+
+}
+
+@Component({
     selector: "modal",
     template: `
 <div class="modal" 
@@ -8,8 +32,8 @@ import {Component, Input, Output, EventEmitter, ElementRef, ViewChild} from "@an
      role="dialog"
      #modalRoot
      (keydown.esc)="closeOnEscape ? close() : 0"
-     [ngClass]="{ in: isOpened, fade: isOpened }"
-     [ngStyle]="{ display: isOpened ? 'block' : 'none' }"
+     [class]="{ in: isOpened, fade: isOpened }"
+     [style]="{ display: isOpened ? 'block' : 'none' }"
      (click)="closeOnOutsideClick ? close() : 0">
     <div [class]="'modal-dialog ' + modalClass" (click)="preventClosing($event)">
         <div class="modal-content" tabindex="0" *ngIf="isOpened">

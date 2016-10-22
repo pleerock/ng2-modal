@@ -1,39 +1,13 @@
-import {Modal} from "./Modal";
+import {Modal,ModalHeader,ModalContent,ModalFooter} from "./Modal";
 import {RouteModal} from "./RouteModal";
-import {CommonModule} from "@angular/common";
-import {NgModule, Component} from "@angular/core";
+import {NgModule} from "@angular/core";
+import {CommonModule} from '@angular/common';
 
 export * from "./Modal";
 export * from "./RouteModal";
 
-@Component({
-    selector: "modal-header",
-    template: `<ng-content></ng-content>`
-})
-export class ModalHeader {
-
-}
-
-@Component({
-    selector: "modal-content",
-    template: `<ng-content></ng-content>`
-})
-export class ModalContent {
-
-}
-
-@Component({
-    selector: "modal-footer",
-    template: `<ng-content></ng-content>`
-})
-export class ModalFooter {
-
-}
-
 @NgModule({
-    imports: [
-        CommonModule
-    ],
+    imports: [ CommonModule ],
     declarations: [
         Modal,
         RouteModal,

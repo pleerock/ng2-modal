@@ -10,6 +10,7 @@ const tslint = require("gulp-tslint");
 const stylish = require("tslint-stylish");
 const ts = require("gulp-typescript");
 const sourcemaps = require("gulp-sourcemaps");
+const exec = require('child_process').exec;
 
 @Gulpclass()
 export class Gulpfile {
@@ -33,6 +34,14 @@ export class Gulpfile {
     compile() {
         return gulp.src("*.js", { read: false })
             .pipe(shell(["tsc"]));
+    }
+
+    @Task()
+    compileAot() {
+        exec('"node_modules/.bin/ngc" -p "tsconfig-aot.json"', (err: any, stdout: any, stderr: any) => {
+            console.log('ngc output:', stdout);
+            console.log('ngc stderr:', stderr);
+        });
     }
 
     // -------------------------------------------------------------------------

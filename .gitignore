@@ -1,4 +1,5 @@
 typings/
 build/
+factories/
 node_modules
 npm-debug.log

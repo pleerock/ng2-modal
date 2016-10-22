@@ -10,8 +10,8 @@ import {Router, ActivatedRoute} from "@angular/router";
      role="dialog"
      #modalRoot
      (keydown.esc)="closeOnEscape ? close() : 0"
-     [ngClass]="{ in: isOpened, fade: isOpened }"
-     [ngStyle]="{ display: isOpened ? 'block' : 'none' }"
+     [class]="{ in: isOpened, fade: isOpened }"
+     [style]="{ display: isOpened ? 'block' : 'none' }"
      (click)="closeOnOutsideClick ? close() : 0">
     <div [class]="'modal-dialog ' + modalClass" (click)="preventClosing($event)">
         <div class="modal-content" tabindex="0" *ngIf="isOpened">
@@ -139,7 +139,7 @@ export class RouteModal implements OnInit, OnDestroy {
         if (this.cancelUrl) {
             let navigationExtras: NavigationExtras = { relativeTo: this.activatedRoute };
             if (this.cancelUrlExtras) {
-                navigationExtras = Object.assign(this.cancelUrlExtras);
+                navigationExtras = (<any>Object).assign(this.cancelUrlExtras);
             }
             this.router.navigate(this.cancelUrl, navigationExtras);
         } else {
