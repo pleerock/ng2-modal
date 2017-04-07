@@ -136,13 +136,16 @@ export class Modal {
     // -------------------------------------------------------------------------
 
     open(...args: any[]) {
-        if (this.isOpened)
-            return;
+        if (this.isOpened) return;
         
         this.isOpened = true;
-        this.onOpen.emit(args);
         document.body.appendChild(this.backdropElement);
-        window.setTimeout(() => this.modalRoot.nativeElement.focus(), 0);
+
+        window.setTimeout(() => {
+            this.modalRoot.nativeElement.focus();
+            this.onOpen.emit(args);
+        }, 0);
+
         document.body.className += " modal-open";
     }
 
@@ -150,10 +153,11 @@ export class Modal {
         if (!this.isOpened)
             return;
 
-        this.isOpened = false;
-        this.onClose.emit(args);
         document.body.removeChild(this.backdropElement);
         document.body.className = document.body.className.replace(/modal-open\b/, "");
+
+        this.isOpened = false;
+        this.onClose.emit(args);
     }
 
     // -------------------------------------------------------------------------
