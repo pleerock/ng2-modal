@@ -142,7 +142,10 @@ export class Modal {
         this.isOpened = true;
         this.onOpen.emit(args);
         document.body.appendChild(this.backdropElement);
-        window.setTimeout(() => this.modalRoot.nativeElement.focus(), 0);
+        window.setTimeout(() => {
+             this.modalRoot.nativeElement.scrollTop = 0;
+             this.modalRoot.nativeElement.focus();
+        }, 0);
         document.body.className += " modal-open";
     }
 
