@@ -83,7 +83,7 @@ export class Modal {
     public submitButtonLabel: string;
 
     @Input()
-    public backdrop:boolen = true;
+    public backdrop:boolean = true;
 
     // -------------------------------------------------------------------------
     // Outputs
