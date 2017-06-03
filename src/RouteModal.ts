@@ -159,7 +159,7 @@ export class RouteModal implements OnInit, OnDestroy {
     // -------------------------------------------------------------------------
 
     public checkClose(event: MouseEvent) {
-        if($(event.target).hasClass('modal')) {
+        if(this.closeOnOutsideClick && $(event.target).hasClass('modal')) {
             this.close();
         }
     }

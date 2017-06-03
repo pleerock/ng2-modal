@@ -161,7 +161,7 @@ export class Modal {
     // -------------------------------------------------------------------------
 
     public checkClose(event: MouseEvent) {
-	if($(event.target).hasClass('modal')) {
+	if(this.closeOnOutsideClick && $(event.target).hasClass('modal')) {
 	    this.close();
 	}
     }
